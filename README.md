@@ -1,27 +1,16 @@
 # Techne
 
-**Techne is a local AI software-building agent designed to turn ideas into working software projects.**
+Techne is an experimental AI software-building agent.
 
-Techne uses a local Ollama model to plan, generate, execute, and repair software projects.
+The current goal is to make Techne capable of:
 
-The goal is simple:
-
-> **Give Techne an idea. Get working software.**
-
-## Current capabilities
-
-Techne can currently:
-
-* Generate Python software projects from natural-language descriptions.
-* Create projects inside the `projects/` directory.
-* Create internal Builder components.
-* Generate structured project files using Ollama.
-* Execute generated Python applications automatically.
-* Provide test input to interactive applications.
-* Detect execution errors.
-* Ask Ollama to repair failed projects.
-* Keep the Builder itself separated from generated user projects.
-* Organize the Builder into reusable components.
+- understanding a software request
+- planning a project
+- generating project files
+- running the generated application
+- detecting errors
+- repairing generated code
+- iterating until the project works
 
 ## Architecture
 
@@ -155,11 +144,24 @@ Techne is being built around a simple idea:
 
 The internal architecture will evolve as real projects expose new problems.
 
-## Status
+## Current status
 
-🚧 **Early development / experimental**
+🚧 Work in progress.
 
-Techne is currently being tested through real generated projects and continuously improved based on the results.
+Techne can currently generate simple Python projects and automatically
+attempt to run and repair them.
+
+The next stage is improving:
+
+- web application generation
+- project execution
+- validation
+- repair reliability
+- frontend quality
+- generated project architecture
+
+The project is being developed incrementally while testing Techne
+against real software projects.
 
 ## License
 
