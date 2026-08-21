@@ -1,17 +1,26 @@
+# Python
 __pycache__/
 *.py[cod]
 
+# Virtual environments
 .venv/
 venv/
 env/
 
+# Environment / secrets
 .env
 *.env
+*.key
+*.pem
 
+# IDEs
 .vscode/
 .idea/
 
+# OS
 .DS_Store
+Thumbs.db
+desktop.ini
 
 # Generated projects
 projects/*
@@ -23,3 +32,20 @@ database/*.sqlite3
 
 # Logs
 *.log
+
+# Test / cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# AI model files
+*.gguf
