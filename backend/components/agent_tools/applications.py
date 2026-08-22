@@ -1,15 +1,22 @@
 import subprocess
+import time
+
+import pygetwindow as gw
 
 
 ALLOWED_APPLICATIONS = {
     "notepad": "notepad.exe",
+    "notepad.exe": "notepad.exe",
     "calculator": "calc.exe",
+    "calc": "calc.exe",
+    "calc.exe": "calc.exe",
     "powershell": "powershell.exe",
+    "powershell.exe": "powershell.exe",
 }
 
 
 def open_application(name: str) -> str:
-    """Open an approved Windows application."""
+    """Open an approved Windows application and bring it to the foreground."""
 
     key = name.lower().strip()
 
@@ -20,10 +27,25 @@ def open_application(name: str) -> str:
             f"Allowed applications: {allowed}"
         )
 
+    executable = ALLOWED_APPLICATIONS[key]
+
     subprocess.Popen(
-        [ALLOWED_APPLICATIONS[key]],
+        [executable],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
 
-    return f"Opened {key}."
+    time.sleep(1)
+
+    windows = gw.getWindowsWithTitle("Notepad")
+
+    if windows:
+        window = windows[0]
+
+        if window.isMinimized:
+            window.restore()
+
+        window.activate()
+        time.sleep(0.3)
+
+    return f"Opened {executable}."
